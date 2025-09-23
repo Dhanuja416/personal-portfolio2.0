@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Sun, Moon, Phone, MapPin, Briefcase, Code, BookOpen, ChevronDown, CheckCircle, GraduationCap, Award } from 'lucide-react';
 
-const imageBaseUrl = 'https://raw.githubusercontent.com/dhanuja-surasingha/dhanuja-surasingha.github.io/main/unnamed%20(1).png';
+const imageBaseUrl = './src/assets/Dhanuja.png';
 
 const sections = [
   { id: 'about', title: 'About' },
@@ -451,6 +451,45 @@ const App = () => {
               <AchievementsSection />
             </motion.div>
           </div>
+           <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-8"
+            initial="hidden"
+            whileInView="visible"
+            variants={variants}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <div className={`${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} p-8 rounded-3xl shadow-2xl transition-colors duration-500`}>
+              <h3 className={`text-xl sm:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6 flex items-center gap-2`}>
+                <BookOpen className="h-8 w-8 text-rose-500" /> Beyond Code
+              </h3>
+              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed mb-4`}>
+                When I'm not coding, you'll find me analyzing Formula 1 strategies, playing badminton, or diving into mystery novels that challenge my problem-solving mindset.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Formula 1', 'Badminton', 'Cricket', 'Music', 'Mystery novels'].map((hobby) => (
+                  <span key={hobby} className={`${isDarkMode ? 'bg-gray-700 text-gray-400' : 'bg-gray-300 text-gray-700'} text-sm py-1 px-3 rounded-full`}>
+                    {hobby}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className={`${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} p-8 rounded-3xl shadow-2xl transition-colors duration-500`}>
+              <h3 className={`text-xl sm:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6 flex items-center gap-2`}>
+                <Briefcase className="h-8 w-8 text-rose-500" /> Languages
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <h4 className={`${isDarkMode ? 'text-gray-200' : 'text-gray-800'} text-lg font-semibold`}>Sinhala</h4>
+                  <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Native</p>
+                </li>
+                <li>
+                  <h4 className={`${isDarkMode ? 'text-gray-200' : 'text-gray-800'} text-lg font-semibold`}>English</h4>
+                  <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Fluent</p>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
         </section>
 
         <section id="projects" className="py-20 lg:py-32">
