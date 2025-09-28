@@ -702,7 +702,7 @@ const App = () => {
 
       <footer className={`${isDarkMode ? 'bg-gray-950/90 border-t border-gray-800' : 'bg-gray-100/90 border-t border-gray-200'} py-8 transition-colors duration-500 relative z-10`}>
         <div className={`container mx-auto text-center ${isDarkMode ? 'text-gray-500' : 'text-gray-600'} text-sm`}>
-          Made with <span className="text-rose-500">♡</span> by Dhanuja Surasingha | &copy; ${new Date().getFullYear()} All Rights Reserved.
+          Made by Dhanuja Surasingha | &copy; ${new Date().getFullYear()} All Rights Reserved.
         </div>
       </footer>
     </div>
