@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Sun, Moon, Phone, MapPin, Briefcase, Code, BookOpen, ChevronDown, CheckCircle, GraduationCap, Award, Download, Zap } from 'lucide-react';
+// NOTE: Removed the direct import for emailjs as it causes compilation issues in this environment.
 
 // --- CONFIGURATION DATA ---
 const sections = [
@@ -228,6 +229,66 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isDarkMode, setIsDarkMode] = useState(true);
 
+  // Form state for Email.js
+  const form = useRef();
+  const [formStatus, setFormStatus] = useState(''); // 'success', 'error', 'sending', ''
+  const [formName, setFormName] = useState('');
+  const [formEmail, setFormEmail] = useState('');
+  const [formMessage, setFormMessage] = useState('');
+
+  // --- Email.js Sending Function Placeholder ---
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setFormStatus('sending');
+
+    // NOTE: This uses the direct Email.js API endpoint. When deployed,
+    // ensure you have the correct library installed OR use a serverless function
+    // to handle the API call securely.
+    const SERVICE_ID = 'service_qxp6p35'; 
+    const TEMPLATE_ID = 'template_oeullns'; 
+    const PUBLIC_KEY = 'hgY6-0qg4krI-UBDw';
+    const API_ENDPOINT = 'https://api.emailjs.com/api/v1.0/email/send';
+
+    const payload = {
+      service_id: SERVICE_ID,
+      template_id: TEMPLATE_ID,
+      user_id: PUBLIC_KEY,
+      template_params: {
+        from_name: formName,
+        from_email: formEmail,
+        message: formMessage,
+      },
+    };
+
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.status === 200) {
+        console.log('Email sent successfully via fetch.');
+        setFormStatus('success');
+        setFormName('');
+        setFormEmail('');
+        setFormMessage('');
+      } else {
+        const errorText = await response.text();
+        console.error('Email sending failed:', errorText);
+        setFormStatus('error');
+      }
+    } catch (error) {
+      console.error('Network error during email send:', error);
+      setFormStatus('error');
+    }
+    
+    // Clear status after 5 seconds
+    setTimeout(() => setFormStatus(''), 5000); 
+  };
+  // --- End of Email.js Function Placeholder ---
+
+
   useEffect(() => {
     // Set initial dark mode state to the class on the body/html for Tailwind
     if (isDarkMode) {
@@ -383,7 +444,7 @@ const App = () => {
                 Software Engineer Intern
               </motion.h2>
               
-              {/* STATIC TAGLINE (Animation Removed) */}
+              {/* STATIC TAGLINE */}
               <motion.p 
                 variants={itemVariants} 
                 className={`${getTextColor(isDarkMode)} text-lg sm:text-xl font-medium mb-10`}
@@ -426,7 +487,7 @@ const App = () => {
                     transition={{ type: "spring", stiffness: 100, damping: 10 }}
                 >
                     <motion.img
-                        // UPDATED IMAGE SOURCE
+                        // --- IMAGE SOURCE ---
                         src="/Dhanuja.png"
                         alt="Dhanuja Surasingha"
                         className="absolute inset-0 w-full h-full object-cover rounded-full"
@@ -447,7 +508,7 @@ const App = () => {
           initial="hidden"
           whileInView="visible"
           variants={sectionVariants}
-          viewport={{ amount: 0.2, once: false }} /* UPDATED: once: false to fix visibility */
+          viewport={{ amount: 0.2, once: false }}
         >
           <motion.h2
             variants={itemVariants}
@@ -491,7 +552,7 @@ const App = () => {
           initial="hidden"
           whileInView="visible"
           variants={sectionVariants}
-          viewport={{ amount: 0.2, once: false }} /* UPDATED: once: false to fix visibility */
+          viewport={{ amount: 0.2, once: false }}
         >
           <motion.h2
             variants={itemVariants}
@@ -562,7 +623,7 @@ const App = () => {
           initial="hidden"
           whileInView="visible"
           variants={sectionVariants}
-          viewport={{ amount: 0.1, once: false }} /* UPDATED: once: false to fix visibility */
+          viewport={{ amount: 0.1, once: false }}
         >
           <motion.h2
             variants={itemVariants}
@@ -621,7 +682,7 @@ const App = () => {
           initial="hidden"
           whileInView="visible"
           variants={sectionVariants}
-          viewport={{ amount: 0.2, once: false }} /* UPDATED: once: false to fix visibility */
+          viewport={{ amount: 0.2, once: false }}
         >
           <motion.h2
             variants={itemVariants}
@@ -641,17 +702,71 @@ const App = () => {
               className={`${getCardClasses(isDarkMode)} p-8 rounded-xl shadow-2xl transition-colors duration-500`}
             >
               <h3 className={`text-2xl font-bold ${getSectionTitleClass(isDarkMode)} mb-6`}>Send a Quick Message</h3>
-              <form className="space-y-6">
-                <input type="text" placeholder="Your Full Name" className={`w-full p-3 rounded-lg ${isDarkMode ? 'bg-gray-900 text-gray-200 placeholder-gray-500 border-gray-700' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'} border focus:outline-none focus:ring-2 focus:ring-rose-500`} />
-                <input type="email" placeholder="Your Email Address" className={`w-full p-3 rounded-lg ${isDarkMode ? 'bg-gray-900 text-gray-200 placeholder-gray-500 border-gray-700' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'} border focus:outline-none focus:ring-2 focus:ring-rose-500`} />
-                <textarea rows="5" placeholder="Tell me about your project or opportunity..." className={`w-full p-3 rounded-lg ${isDarkMode ? 'bg-gray-900 text-gray-200 placeholder-gray-500 border-gray-700' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'} border focus:outline-none focus:ring-2 focus:ring-rose-500`}></textarea>
+              <form ref={form} onSubmit={sendEmail} className="space-y-6">
+                <input 
+                  type="text" 
+                  name="user_name"
+                  placeholder="Your Full Name" 
+                  value={formName}
+                  onChange={(e) => setFormName(e.target.value)}
+                  required
+                  className={`w-full p-3 rounded-lg ${isDarkMode ? 'bg-gray-900 text-gray-200 placeholder-gray-500 border-gray-700' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'} border focus:outline-none focus:ring-2 focus:ring-rose-500`} 
+                />
+                <input 
+                  type="email" 
+                  name="user_email"
+                  placeholder="Your Email Address" 
+                  value={formEmail}
+                  onChange={(e) => setFormEmail(e.target.value)}
+                  required
+                  className={`w-full p-3 rounded-lg ${isDarkMode ? 'bg-gray-900 text-gray-200 placeholder-gray-500 border-gray-700' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'} border focus:outline-none focus:ring-2 focus:ring-rose-500`} 
+                />
+                <textarea 
+                  rows="5" 
+                  name="message"
+                  placeholder="Tell me about your project or opportunity..." 
+                  value={formMessage}
+                  onChange={(e) => setFormMessage(e.target.value)}
+                  required
+                  className={`w-full p-3 rounded-lg ${isDarkMode ? 'bg-gray-900 text-gray-200 placeholder-gray-500 border-gray-700' : 'bg-gray-100 text-gray-800 placeholder-gray-500 border-gray-300'} border focus:outline-none focus:ring-2 focus:ring-rose-500`}
+                ></textarea>
+                
+                {/* Status Message */}
+                <AnimatePresence>
+                  {formStatus === 'success' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="text-center text-green-500 font-bold"
+                    >
+                      Message sent successfully! Thank you.
+                    </motion.p>
+                  )}
+                  {formStatus === 'error' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="text-center text-red-500 font-bold"
+                    >
+                      Failed to send message. Please try again or email me directly.
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+
                 <motion.button
                   type="submit"
-                  className="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.02]"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={formStatus === 'sending'}
+                  className={`w-full font-bold py-3 rounded-lg shadow-lg transform transition-all duration-300 ${
+                    formStatus === 'sending' 
+                      ? 'bg-gray-500 cursor-not-allowed' 
+                      : 'bg-rose-500 hover:bg-rose-600 hover:scale-[1.02]'
+                  } text-white`}
+                  whileHover={{ scale: formStatus !== 'sending' ? 1.02 : 1 }}
+                  whileTap={{ scale: formStatus !== 'sending' ? 0.98 : 1 }}
                 >
-                  Send Message
+                  {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
                 </motion.button>
               </form>
             </motion.div>
@@ -687,10 +802,10 @@ const App = () => {
                   I'm currently seeking internship opportunities and exciting projects where I can contribute my skills in full-stack development, IoT, and cloud computing.
                 </p>
                 <div className="flex space-x-4">
-                  <a href="www.linkedin.com/in/dhanuja-surasingha-0a03a7260" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-rose-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.05] hover:bg-rose-600">
+                  <a href="https://www.linkedin.com/in/dhanuja-surasingha/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-rose-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.05] hover:bg-rose-600">
                     <Linkedin className="h-5 w-5" /> LinkedIn
                   </a>
-                  <a href="https://github.com/Dhanuja416" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'} font-bold py-2 px-5 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.02] flex items-center gap-2`}>
+                  <a href="https://github.com/Dhanuja-Surasingha" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'} font-bold py-2 px-5 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.02] flex items-center gap-2`}>
                     <Github className="h-5 w-5" /> GitHub
                   </a>
                 </div>
@@ -702,7 +817,7 @@ const App = () => {
 
       <footer className={`${isDarkMode ? 'bg-gray-950/90 border-t border-gray-800' : 'bg-gray-100/90 border-t border-gray-200'} py-8 transition-colors duration-500 relative z-10`}>
         <div className={`container mx-auto text-center ${isDarkMode ? 'text-gray-500' : 'text-gray-600'} text-sm`}>
-          Made by Dhanuja Surasingha | &copy; ${new Date().getFullYear()} All Rights Reserved.
+          Made with <span className="text-rose-500">♡</span> by Dhanuja Surasingha | &copy; ${new Date().getFullYear()} All Rights Reserved.
         </div>
       </footer>
     </div>
