@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Sun, Moon, Phone, MapPin, Briefcase, Code, BookOpen, ChevronDown, CheckCircle, GraduationCap, Award, Download, Zap } from 'lucide-react';
 // NOTE: Removed the direct import for emailjs as it causes compilation issues in this environment.
+import profilePic from './assets/Dhanuja.png';
 
 // --- CONFIGURATION DATA ---
 const sections = [
@@ -105,6 +106,14 @@ const projectsData = [
     role: 'Full Stack Developer',
     link: '#',
     imageUrl: 'https://placehold.co/600x400/0f766e/fff?text=Job+Tracker+Extension', 
+  },
+  {
+    title: 'Condition Controlled Plant Maintaining System (IoT)',
+    description: 'Developed an IoT-based automated plant care system for urban residents using ESP32 microcontroller with integrated environmental monitoring and control capabilities.',
+    technologies: ['Arduino', 'ESP32', 'DHT22/DS18B20 Sensors', 'C++', 'Proteus Simulation'],
+    role: 'Hardware Engineer',
+    link: '#',
+    imageUrl: 'https://placehold.co/600x400/fb923c/fff?text=IoT+System+Diagram', 
   },
   {
     title: 'Condition Controlled Plant Maintaining System (IoT)',
@@ -488,7 +497,7 @@ const App = () => {
                 >
                     <motion.img
                         // --- IMAGE SOURCE ---
-                        src="/Dhanuja.png"
+                        src={profilePic}
                         alt="Dhanuja Surasingha"
                         className="absolute inset-0 w-full h-full object-cover rounded-full"
                         initial={{ scale: 1.1 }}
