@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Sun, Moon, Phone, MapPin, Briefcase, Code, BookOpen, ChevronDown, CheckCircle, GraduationCap, Award, Download, Zap } from 'lucide-react';
 // NOTE: Removed the direct import for emailjs as it causes compilation issues in this environment.
 import profilePic from './assets/Dhanuja.png';
+import portofolio_Pic from './assets/Dhanuja_Portofolio2.0.jpg';
 
 // --- CONFIGURATION DATA ---
 const sections = [
@@ -89,7 +90,7 @@ const projectsData = [
     technologies: ['React.js', 'Tailwind CSS', 'Framer Motion', 'Vercel', 'CI/CD'],
     role: 'Full Stack Developer',
     link: '#',
-    imageUrl: 'https://placehold.co/600x400/1e293b/fff?text=Portfolio+Live+View', 
+    imageUrl: '../src/assets/Dhanuja_Portofolio2.0.jpg', 
   },
   {
     title: 'Tea Factory Supply Chain Management System',
