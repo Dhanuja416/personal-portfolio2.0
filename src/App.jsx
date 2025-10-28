@@ -679,6 +679,15 @@ const App = () => {
                       </li>
                     ))}
                   </ul>
+                  {/* NEW: GitHub Link Button */}
+                   <a 
+                     href="#" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm shadow-md mt-2"
+                      >
+                    <Github className="h-4 w-4" /> View Code
+                   </a>
                 </div>
               </motion.div>
             ))}
@@ -827,7 +836,7 @@ const App = () => {
 
       <footer className={`${isDarkMode ? 'bg-gray-950/90 border-t border-gray-800' : 'bg-gray-100/90 border-t border-gray-200'} py-8 transition-colors duration-500 relative z-10`}>
         <div className={`container mx-auto text-center ${isDarkMode ? 'text-gray-500' : 'text-gray-600'} text-sm`}>
-          Made with <span className="text-rose-500">♡</span> by Dhanuja Surasingha | &copy; ${new Date().getFullYear()} All Rights Reserved.
+          Made by Dhanuja Surasingha | &copy; {new Date().getFullYear()} All Rights Reserved.
         </div>
       </footer>
     </div>
