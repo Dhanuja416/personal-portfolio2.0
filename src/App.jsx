@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Sun, Moon, Phone, MapPin, Briefcase, Code, BookOpen, ChevronDown, CheckCircle, GraduationCap, Award, Download, Zap } from 'lucide-react';
 // NOTE: Removed the direct import for emailjs as it causes compilation issues in this environment.
-import profilePic from '../public/Dhanuja.png';
-import portfolioPic from '../public/Dhanuja_Portofolio2.0.jpg';
-import tfsmsPic from '../public/TFSMS.jpg';
-import reapPic from '../public/REAP_ongoing_target_design.jpg';
-import expenzPic from '../public/ExpenZAI.png';
-import plantPic from '../public/Conditioned_Controlled_Plant.jpg';
-import ledgerPic from '../public/EvergreenLedger.png';
+// import profilePic from '../public/Dhanuja.png';
+// import portfolioPic from '../public/Dhanuja_Portofolio2.0.jpg';
+// import tfsmsPic from '../public/TFSMS.jpg';
+// import reapPic from '../public/REAP_ongoing_target_design.jpg';
+// import expenzPic from '../public/ExpenZAI.png';
+// import plantPic from '../public/Conditioned_Controlled_Plant.jpg';
+// import ledgerPic from '../public/EvergreenLedger.png';
 
 
 // --- CONFIGURATION DATA ---
@@ -97,7 +97,7 @@ const projectsData = [
     role: 'Full Stack Developer',
     link: '#',
     githubLink: 'https://github.com/Dhanuja416/personal-portfolio2.0',
-    imageUrl: portfolioPic, 
+    imageUrl: '/Dhanuja_portofolio2.0.jpg', 
   },
   {
     title: 'Tea Factory Supply Chain Management System',
@@ -106,7 +106,7 @@ const projectsData = [
     role: 'Full Stack Developer',
     link: '#',
     githubLink:'https://github.com/Dhanuja416/TFSMS_NextGenNerds',
-    imageUrl: tfsmsPic, 
+    imageUrl: '/TFSMS.jpg', 
   
   },
   {
@@ -116,17 +116,17 @@ const projectsData = [
     role: 'Full Stack Developer',
     link: '#',
     githubLink:'https://github.com/Dhanuja416/real-time-event-planner',
-    imageUrl:  reapPic, 
+    imageUrl:  '/REAP_ongoing_target_design.jpg', 
   },
   {
     title: ' ExpenZ AI - Personal Finance Tracker',
     description: 'Developed an AI-powered personal finance application featuring intelligent expense categorization, real-time analytics with interactive charts, and a conversational AI interface for personalized financial insights and spending pattern analysis with multi-provider authentication.',
     technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'PostgreSQL (Neon)', 'Prisma ORM', 'OpenRouter AI', 'Clerk Authentication', 'Chart.js', 'Vercel CI/CD'],
-    role: 'Hardware Engineer',
+    role: 'Full Stack Developer',
     link: '#',
     githubLink:'https://github.com/Dhanuja416/next-Expenz',
     vercelLink:'https://next-expenz.vercel.app/',
-    imageUrl: expenzPic,
+    imageUrl: '/ExpenZAI.png',
   },
   {
     title: 'Condition Controlled Plant Maintaining System (IoT)',
@@ -135,7 +135,7 @@ const projectsData = [
     role: 'Hardware Engineer',
     link: '#',
     githubLink:'https://github.com/Dhanuja416/Green-Care-Assist',
-    imageUrl: plantPic,
+    imageUrl: '/Conditioned_Controlled_Plant.jpg',
   },
   {
     title: 'Evergreen Ledger -  A Strategic Information System for Walahanduwa Tea Factory(Frontend)',
@@ -145,7 +145,7 @@ const projectsData = [
     link: '#',
     githubLink:'https://github.com/Dhanuja416/evergreen-ledger',
     vercelLink:'https://evergreen-ledger.vercel.app/',
-    imageUrl: ledgerPic,
+    imageUrl: '/EvergreenLedger.png',
   },
 ];
 
@@ -246,7 +246,7 @@ const Header = ({ activeSection, smoothScrollTo, isDarkMode, setIsDarkMode }) =>
   // 1. href: This is the URL path where the browser will look for the file.
   // The leading slash (/) points to the root of the deployed website, 
   // which corresponds to your local /public folder.
-           href="../../public/Dhanuja_Surasingha_SE_CV.pdf" 
+           href="/Dhanuja_Surasingha_SE_CV.pdf" 
   
   // 2. download: This attribute forces the browser to download the file 
   // instead of just displaying it, and it suggests the filename.
@@ -529,7 +529,7 @@ const App = () => {
                 >
                     <motion.img
                         // --- IMAGE SOURCE ---
-                        src={profilePic}
+                        src="/Dhanuja.png"
                         alt="Dhanuja Surasingha"
                         className="absolute inset-0 w-full h-full object-cover rounded-full"
                         initial={{ scale: 1.1 }}
