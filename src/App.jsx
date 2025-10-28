@@ -99,6 +99,7 @@ const projectsData = [
     technologies: ['Angular', 'ASP.NET', 'Flutter', 'MSSQL', 'Azure', 'RESTful APIs'],
     role: 'Full Stack Developer',
     link: '#',
+    githubLink:'https://github.com/Dhanuja416/TFSMS_NextGenNerds',
     imageUrl: '../src/assets/TFSMS.jpg', 
   
   },
@@ -108,6 +109,7 @@ const projectsData = [
     technologies: ['React', 'ASP.NET 8', 'SignalR', 'PostgreSQL', 'EF Core', 'Tailwind CSS'],
     role: 'Full Stack Developer',
     link: '#',
+    githubLink:'https://github.com/Dhanuja416/real-time-event-planner',
     imageUrl: '../src/assets/REAP_ongoing_target_design.jpg', 
   },
   {
@@ -116,6 +118,9 @@ const projectsData = [
     technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'PostgreSQL (Neon)', 'Prisma ORM', 'OpenRouter AI', 'Clerk Authentication', 'Chart.js', 'Vercel CI/CD'],
     role: 'Hardware Engineer',
     link: '#',
+    githubLink:'https://github.com/Dhanuja416/next-Expenz',
+    vercelLink:'https://next-expenz.vercel.app/',
+
     imageUrl: '../src/assets/ExpenZAI.png', 
   },
   {
@@ -124,6 +129,7 @@ const projectsData = [
     technologies: ['Arduino', 'ESP32', 'DHT22/DS18B20 Sensors', 'C++', 'Proteus Simulation'],
     role: 'Hardware Engineer',
     link: '#',
+    githubLink:'https://github.com/Dhanuja416/Green-Care-Assist',
     imageUrl: '../src/assets/Conditioned_Controlled_Plant.jpg', 
   },
   {
@@ -132,6 +138,8 @@ const projectsData = [
     technologies: ['Next.js', 'Figma', 'Tailwind CSS', 'Vercel CI/CD'],
     role: 'Frontend Developer',
     link: '#',
+    githubLink:'https://github.com/Dhanuja416/evergreen-ledger',
+    vercelLink:'https://evergreen-ledger.vercel.app/',
     imageUrl: '../src/assets/EvergreenLedger.png', 
   },
 ];
@@ -698,6 +706,22 @@ const App = () => {
                       >
                     <Github className="h-4 w-4" /> View Code
                    </a>
+
+                   {/* Launch Button - Only show if vercelLink exists */}
+                   {project.vercelLink && (
+                    <a 
+                      href={project.vercelLink}
+                      target="_blank" 
+                      rel="noopener noreferrer external"
+                      onClick={(e) => {
+                      e.preventDefault();
+                      window.open(project.vercelLink, '_blank', 'noopener,noreferrer');
+                      }}
+                     className="inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm shadow-md"
+      >
+                    <Zap className="h-4 w-4" /> Launch App
+                   </a>
+    )}
                 </div>
               </motion.div>
             ))}
