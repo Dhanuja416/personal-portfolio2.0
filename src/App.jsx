@@ -1,14 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Sun, Moon, Phone, MapPin, Briefcase, Code, BookOpen, ChevronDown, CheckCircle, GraduationCap, Award, Download, Zap } from 'lucide-react';
-// NOTE: Removed the direct import for emailjs as it causes compilation issues in this environment.
-// import profilePic from '../public/Dhanuja.png';
-// import portfolioPic from '../public/Dhanuja_Portofolio2.0.jpg';
-// import tfsmsPic from '../public/TFSMS.jpg';
-// import reapPic from '../public/REAP_ongoing_target_design.jpg';
-// import expenzPic from '../public/ExpenZAI.png';
-// import plantPic from '../public/Conditioned_Controlled_Plant.jpg';
-// import ledgerPic from '../public/EvergreenLedger.png';
 
 
 // --- CONFIGURATION DATA ---
@@ -246,7 +238,7 @@ const Header = ({ activeSection, smoothScrollTo, isDarkMode, setIsDarkMode }) =>
   // 1. href: This is the URL path where the browser will look for the file.
   // The leading slash (/) points to the root of the deployed website, 
   // which corresponds to your local /public folder.
-           href="/Dhanuja_Surasingha_SE_CV.pdf" 
+           href="/Dhanuja_Surasingha_SE.pdf" 
   
   // 2. download: This attribute forces the browser to download the file 
   // instead of just displaying it, and it suggests the filename.
