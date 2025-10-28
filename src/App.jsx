@@ -90,23 +90,33 @@ const projectsData = [
     technologies: ['React.js', 'Tailwind CSS', 'Framer Motion', 'Vercel', 'CI/CD'],
     role: 'Full Stack Developer',
     link: '#',
+    githubLink: 'https://github.com/Dhanuja416/personal-portfolio2.0',
     imageUrl: '../src/assets/Dhanuja_Portofolio2.0.jpg', 
   },
   {
     title: 'Tea Factory Supply Chain Management System',
     description: 'Developed a full-stack Tea Factory Supply Chain Management System (TFSCMS) to digitize and automate key processes, enhancing efficiency and data accuracy. My core responsibility was designing and implementing the Ledger Management and Reporting modules.',
-    technologies: ['Angular', 'ASP.NET', 'Flutter', 'MSSQL', 'Azure'],
+    technologies: ['Angular', 'ASP.NET', 'Flutter', 'MSSQL', 'Azure', 'RESTful APIs'],
     role: 'Full Stack Developer',
     link: '#',
-    imageUrl: 'https://placehold.co/600x400/581c87/fff?text=Supply+Chain+Management', 
+    imageUrl: '../src/assets/TFSMS.jpg', 
+  
   },
   {
-    title: 'Linkedin Job Application Tracker (Ongoing)',
-    description: 'Developing a Chrome extension to automate job application tracking and management for Linkedin users. Core features include automated job posting detection, one-click application saving, and success pattern analysis.',
-    technologies: ['JavaScript ES6+', 'Chrome Extension APIs', 'HTML5', 'CSS3', 'Chrome Storage API'],
+    title: ' Real-Time Event Planner (REAP)  (on going)',
+    description: 'Developed a Real-Time Event Planner (REAP) using ASP.NET SignalR (WebSockets) for instant collaborative task management and immediate data synchronization, with a complete CRUD AP built on .NET 8 Web API, PostgreSQL, Entity Framework Core, and Dependency Injection.',
+    technologies: ['React', 'ASP.NET 8', 'SignalR', 'PostgreSQL', 'EF Core', 'Tailwind CSS'],
     role: 'Full Stack Developer',
     link: '#',
-    imageUrl: 'https://placehold.co/600x400/0f766e/fff?text=Job+Tracker+Extension', 
+    imageUrl: '../src/assets/REAP_ongoing_target_design.jpg', 
+  },
+  {
+    title: ' ExpenZ AI - Personal Finance Tracker',
+    description: 'Developed an AI-powered personal finance application featuring intelligent expense categorization, real-time analytics with interactive charts, and a conversational AI interface for personalized financial insights and spending pattern analysis with multi-provider authentication.',
+    technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'PostgreSQL (Neon)', 'Prisma ORM', 'OpenRouter AI', 'Clerk Authentication', 'Chart.js', 'Vercel CI/CD'],
+    role: 'Hardware Engineer',
+    link: '#',
+    imageUrl: '../src/assets/ExpenZAI.png', 
   },
   {
     title: 'Condition Controlled Plant Maintaining System (IoT)',
@@ -114,15 +124,15 @@ const projectsData = [
     technologies: ['Arduino', 'ESP32', 'DHT22/DS18B20 Sensors', 'C++', 'Proteus Simulation'],
     role: 'Hardware Engineer',
     link: '#',
-    imageUrl: 'https://placehold.co/600x400/fb923c/fff?text=IoT+System+Diagram', 
+    imageUrl: '../src/assets/Conditioned_Controlled_Plant.jpg', 
   },
   {
-    title: 'Condition Controlled Plant Maintaining System (IoT)',
-    description: 'Developed an IoT-based automated plant care system for urban residents using ESP32 microcontroller with integrated environmental monitoring and control capabilities.',
-    technologies: ['Arduino', 'ESP32', 'DHT22/DS18B20 Sensors', 'C++', 'Proteus Simulation'],
-    role: 'Hardware Engineer',
+    title: 'Evergreen Ledger -  A Strategic Information System for Walahanduwa Tea Factory(Frontend)',
+    description: 'Developed a Digital Green Leaf Procurement and Payment System (DGLPPS) to digitize supplier operations and integrate with finance for Walahanduwa Tea Factory',
+    technologies: ['Next.js', 'Figma', 'Tailwind CSS', 'Vercel CI/CD'],
+    role: 'Frontend Developer',
     link: '#',
-    imageUrl: 'https://placehold.co/600x400/fb923c/fff?text=IoT+System+Diagram', 
+    imageUrl: '../src/assets/EvergreenLedger.png', 
   },
 ];
 
@@ -681,7 +691,7 @@ const App = () => {
                   </ul>
                   {/* NEW: GitHub Link Button */}
                    <a 
-                     href="#" 
+                     href={project.githubLink}
                      target="_blank" 
                      rel="noopener noreferrer" 
                      className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm shadow-md mt-2"
