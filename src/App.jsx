@@ -565,7 +565,7 @@ const App = () => {
                 Summary
               </h3>
               <p className={`${getTextColor(isDarkMode)} leading-relaxed`}>
-                A passionate and motivated IT undergraduate and aspiring Software Engineer with a strong foundation in core programming and problem-solving. Possessing a keen interest in **Cloud Computing** and **DevOps** methodologies, I am eager to apply my foundational development skills and commitment to continuous learning in a challenging Software Engineering Internship. Seeking to contribute to innovative projects and gain hands-on experience in building efficient, scalable systems.
+                A passionate and motivated IT undergraduate and aspiring Software Engineer with a strong foundation in core programming and problem-solving. Possessing a keen interest in Cloud Computing and DevOps methodologies, I am eager to apply my foundational development skills and commitment to continuous learning in a challenging Software Engineering Internship. Seeking to contribute to innovative projects and gain hands-on experience in building efficient, scalable systems.
               </p>
             </motion.div>
 
