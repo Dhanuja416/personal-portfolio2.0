@@ -3,7 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Sun, Moon, Phone, MapPin, Briefcase, Code, BookOpen, ChevronDown, CheckCircle, GraduationCap, Award, Download, Zap } from 'lucide-react';
 // NOTE: Removed the direct import for emailjs as it causes compilation issues in this environment.
 import profilePic from './assets/Dhanuja.png';
-import portofolio_Pic from './assets/Dhanuja_Portofolio2.0.jpg';
+
+
+
+import portfolioPic from './assets/Dhanuja_Portofolio2.0.jpg';
+import tfsmsPic from './assets/TFSMS.jpg';
+import reapPic from './assets/REAP_ongoing_target_design.jpg';
+import expenzPic from './assets/ExpenZAI.png';
+import plantPic from './assets/Conditioned_Controlled_Plant.jpg';
+import ledgerPic from './assets/EvergreenLedger.png';
+
 
 // --- CONFIGURATION DATA ---
 const sections = [
@@ -91,7 +100,7 @@ const projectsData = [
     role: 'Full Stack Developer',
     link: '#',
     githubLink: 'https://github.com/Dhanuja416/personal-portfolio2.0',
-    imageUrl: '../src/assets/Dhanuja_Portofolio2.0.jpg', 
+    imageUrl: portfolioPic, 
   },
   {
     title: 'Tea Factory Supply Chain Management System',
@@ -100,7 +109,7 @@ const projectsData = [
     role: 'Full Stack Developer',
     link: '#',
     githubLink:'https://github.com/Dhanuja416/TFSMS_NextGenNerds',
-    imageUrl: '../src/assets/TFSMS.jpg', 
+    imageUrl: tfsmsPic, 
   
   },
   {
@@ -110,7 +119,7 @@ const projectsData = [
     role: 'Full Stack Developer',
     link: '#',
     githubLink:'https://github.com/Dhanuja416/real-time-event-planner',
-    imageUrl: '../src/assets/REAP_ongoing_target_design.jpg', 
+    imageUrl:  reapPic, 
   },
   {
     title: ' ExpenZ AI - Personal Finance Tracker',
@@ -120,8 +129,7 @@ const projectsData = [
     link: '#',
     githubLink:'https://github.com/Dhanuja416/next-Expenz',
     vercelLink:'https://next-expenz.vercel.app/',
-
-    imageUrl: '../src/assets/ExpenZAI.png', 
+    imageUrl: expenzPic,
   },
   {
     title: 'Condition Controlled Plant Maintaining System (IoT)',
@@ -130,7 +138,7 @@ const projectsData = [
     role: 'Hardware Engineer',
     link: '#',
     githubLink:'https://github.com/Dhanuja416/Green-Care-Assist',
-    imageUrl: '../src/assets/Conditioned_Controlled_Plant.jpg', 
+    imageUrl: plantPic,
   },
   {
     title: 'Evergreen Ledger -  A Strategic Information System for Walahanduwa Tea Factory(Frontend)',
@@ -140,7 +148,7 @@ const projectsData = [
     link: '#',
     githubLink:'https://github.com/Dhanuja416/evergreen-ledger',
     vercelLink:'https://evergreen-ledger.vercel.app/',
-    imageUrl: '../src/assets/EvergreenLedger.png', 
+    imageUrl: ledgerPic,
   },
 ];
 
