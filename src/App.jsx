@@ -2,16 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Sun, Moon, Phone, MapPin, Briefcase, Code, BookOpen, ChevronDown, CheckCircle, GraduationCap, Award, Download, Zap } from 'lucide-react';
 // NOTE: Removed the direct import for emailjs as it causes compilation issues in this environment.
-import profilePic from './assets/Dhanuja.png';
-
-
-
-import portfolioPic from './assets/Dhanuja_Portofolio2.0.jpg';
-import tfsmsPic from './assets/TFSMS.jpg';
-import reapPic from './assets/REAP_ongoing_target_design.jpg';
-import expenzPic from './assets/ExpenZAI.png';
-import plantPic from './assets/Conditioned_Controlled_Plant.jpg';
-import ledgerPic from './assets/EvergreenLedger.png';
+import profilePic from '../public/Dhanuja.png';
+import portfolioPic from '../public/Dhanuja_Portofolio2.0.jpg';
+import tfsmsPic from '../public/TFSMS.jpg';
+import reapPic from '../public/REAP_ongoing_target_design.jpg';
+import expenzPic from '../public/ExpenZAI.png';
+import plantPic from '../public/Conditioned_Controlled_Plant.jpg';
+import ledgerPic from '../public/EvergreenLedger.png';
 
 
 // --- CONFIGURATION DATA ---
