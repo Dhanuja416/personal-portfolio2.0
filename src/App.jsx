@@ -238,10 +238,18 @@ const Header = ({ activeSection, smoothScrollTo, isDarkMode, setIsDarkMode }) =>
             </button>
           ))}
           <a
-            href="#" // Placeholder for resume download link
-            className="bg-rose-500 text-white font-bold py-2 px-5 rounded-lg shadow-xl transform transition-all duration-300 hover:scale-[1.02] hover:bg-rose-600 flex items-center gap-2 ml-4"
+  // 1. href: This is the URL path where the browser will look for the file.
+  // The leading slash (/) points to the root of the deployed website, 
+  // which corresponds to your local /public folder.
+           href="../../public/Dhanuja_Surasingha_SE_CV.pdf" 
+  
+  // 2. download: This attribute forces the browser to download the file 
+  // instead of just displaying it, and it suggests the filename.
+           download="Dhanuja_Surasingha_Resume.pdf"
+  
+           className="bg-rose-500 text-white font-bold py-2 px-5 rounded-lg shadow-xl transform transition-all duration-300 hover:scale-[1.02] hover:bg-rose-600 flex items-center gap-2 ml-4"
           >
-            <Download className="w-4 h-4" /> Resume
+           <Download className="w-4 h-4" /> Resume
           </a>
           <button onClick={() => setIsDarkMode(!isDarkMode)} className={`${textClass} transition-colors duration-300 p-2 rounded-full hover:bg-gray-800/50`}>
             {isDarkMode ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
