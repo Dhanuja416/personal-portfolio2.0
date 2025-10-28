@@ -871,10 +871,10 @@ const App = () => {
                   I'm currently seeking internship opportunities and exciting projects where I can contribute my skills in full-stack development, IoT, and cloud computing.
                 </p>
                 <div className="flex space-x-4">
-                  <a href="https://www.linkedin.com/in/dhanuja-surasingha/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-rose-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.05] hover:bg-rose-600">
+                  <a href="www.linkedin.com/in/dhanuja-surasingha-0a03a7260" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-rose-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.05] hover:bg-rose-600">
                     <Linkedin className="h-5 w-5" /> LinkedIn
                   </a>
-                  <a href="https://github.com/Dhanuja-Surasingha" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'} font-bold py-2 px-5 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.02] flex items-center gap-2`}>
+                  <a href="https://github.com/Dhanuja416" target="_blank" rel="noopener noreferrer" className={`${isDarkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'} font-bold py-2 px-5 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-[1.02] flex items-center gap-2`}>
                     <Github className="h-5 w-5" /> GitHub
                   </a>
                 </div>
